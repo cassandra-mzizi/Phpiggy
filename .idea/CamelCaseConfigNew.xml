@@ -3,8 +3,8 @@
   <component name="CamelCaseConfig">
     <option name="model">
       <array>
-        <option value="kebab-case" />
         <option value="CamelCase" />
+        <option value="kebab-case" />
         <option value="camelCase" />
         <option value="SNAKE_CASE" />
         <option value="snake_case" />

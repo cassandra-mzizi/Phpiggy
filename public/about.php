@@ -1,3 +1,6 @@
 <?php
 
-echo "<h1>ABOUT PAGE!</h1>";
+include __DIR__."/../src/App/functions.php";
+$app = require __DIR__."/../src/App/bootstrap.php";
+
+$app->run();
