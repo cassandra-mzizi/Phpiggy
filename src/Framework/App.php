@@ -6,12 +6,22 @@ namespace Framework;
 
 class App
 {
+
+    private Container $container;
+
     private Router $router;
 
-    public function __construct ()
+    public function __construct(string $containerDefinitionsPath = null)
     {
         $this->router = new Router();
+        $this->container = new Container();
+
+        if ($containerDefinitionsPath) {
+            $containerDefinitions = include $containerDefinitionsPath;
+            $this->container->addDefinitions($containerDefinitions);
+        }
     }
+
     public function run()
     {
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -21,6 +31,7 @@ class App
 
     public function get(string $path, array $controller)
     {
-        $this->router->add('GET',$path, $controller);
+        $this->router->add('GET', $path, $controller);
     }
+
 }

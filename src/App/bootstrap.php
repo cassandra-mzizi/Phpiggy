@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 require __DIR__.'/../../vendor/autoload.php';
 
+//adding new
 use Framework\App;
-use App\Controllers\{HomeController, AboutController, TransactionsController};
+use App\Config\Paths;
 
-$app = new App();
+use function App\Config\registerRoutes;
 
-$app->get('/', [HomeController::class, 'home']);
-$app->get('/about', [AboutController::class, 'about']);
-$app->get('/transactions', [TransactionsController::class, 'transactions']);
-
+$app = new App(Paths::SOURCE."app/container-definitions.php");
+registerRoutes($app);
 return $app;
 
